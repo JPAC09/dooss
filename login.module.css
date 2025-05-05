@@ -1,0 +1,44 @@
+.loginform div{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 5px;
+}
+
+.loginformcontainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.loginform {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 25%;
+}
+
+.loginform input {
+    border-radius: 12px;
+    height: 40px;
+    width: 250px;
+    margin: 5px;
+    padding-left: 0.5rem;
+    font-size: 16px;
+}
+
+.loginform button {
+    margin: 10px;
+    border-radius: 12px;
+    height: 40px;
+    width: 150px;
+    font-size: 16px;
+    background-color: black;
+    color: white;
+}
+
+.loginform .buttoncontainer {
+    display: flex;
+    justify-content: center;
+}

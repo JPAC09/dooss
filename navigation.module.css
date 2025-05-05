@@ -1,0 +1,24 @@
+.navigationcontainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.navigationhome {
+    display: flex;
+    justify-content: center;
+}
+
+.navigationcontainer nav {
+    display: flex;
+    justify-content: space-between;
+    width: 40%;
+}
+
+.navigationcontainer a {
+    text-decoration: none;
+}
+
+.dividercontainer {
+    width: 50%;
+}
