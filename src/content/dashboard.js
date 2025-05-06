@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
+import styles from './dashboard.module.css';
 
 export default function Dashboard({user, setUser}) {
     const navigate = useNavigate();
@@ -17,7 +18,7 @@ export default function Dashboard({user, setUser}) {
         else {
             navigate('/login?redirect=dashboard');
         }
-      }, [user]);
+      }, []);
     
     const handleCancel = (appointmentId) => {
         axios.delete(`http://localhost:5000/api/dashboard/${appointmentId}`)
@@ -41,41 +42,43 @@ export default function Dashboard({user, setUser}) {
     }
     
     return (
-        <>
-            <div>
-                <h3>Patient Profile</h3>
-                <p>Name: {user.name}</p>
-                <p>Account ID: {user.userId}</p>
-                <p>E-mail: {user.email}</p>
-                <p>Gender: {user.gender}</p>
-                <p>Birthdate: {user.birthdate}</p>
-                <button onClick={() => handleLogout()}>Logout</button>
+        <div className={styles.dashboard}>
+            <div className={styles.profile}>
+                <table>
+                    <tr><th colspan="2">Patient Information</th></tr>
+                    <tr><td>Name:</td><td>{user.name}</td></tr>
+                    <tr><td>Account ID:</td><td>{user.userId}</td></tr>
+                    <tr><td>E-mail:</td><td>{user.email}</td></tr>
+                    <tr><td>Gender:</td><td>{user.gender}</td></tr>
+                    <tr><td>Birthdate:</td><td>{user.birthdate}</td></tr>
+                </table>
+                <div className={styles.buttonContainer}><button onClick={() => handleLogout()}>Logout</button></div>
             </div>
 
-            <table>
-                <thead>
-                    <tr>
-                        <th>Dentist Name</th>
-                        <th>Appointment Date</th>
-                        <th>Appointment Time</th>
-                        <th>Status</th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {appointments.map(a => (
+            <div className={styles.appointments}>
+                <table>
+                    <thead>
                         <tr>
-                            <td>{a.name}</td>
-                            <td>{a.date}</td>
-                            <td>{a.time}</td>
-                            <td>Completed</td>
-                            <td>
-                                <button onClick={() => handleCancel(a.id)}>Cancel appointment</button>
-                            </td>
+                            <th>Dentist Name</th>
+                            <th>Appointment Date</th>
+                            <th>Appointment Time</th>
+                            <th></th>
                         </tr>
-                    ))}
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        {appointments.map(a => (
+                            <tr>
+                                <td>{a.name}</td>
+                                <td>{a.date}</td>
+                                <td>{a.time}</td>
+                                <td>
+                                    <button onClick={() => handleCancel(a.id)}>CANCEL APPOINTMENT</button>
+                                </td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
+            </div>
             {/* <div>
                 <ul>
                     {appointments.map(a => (
@@ -85,7 +88,7 @@ export default function Dashboard({user, setUser}) {
                     ))}   
                 </ul>
             </div> */}
-        </>
+        </div>
     );
 
 }

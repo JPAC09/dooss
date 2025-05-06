@@ -1,0 +1,57 @@
+.dashboard table {
+    border-collapse: collapse;
+}
+
+.dashboard {
+    display: flex;
+}
+
+.profile {
+    flex: 0 0 20%;
+    table-layout: fixed;
+    margin: 10px;
+}
+
+.appointments {
+    flex: 0 0 80%;
+    table-layout: fixed;
+    margin: 10px;
+    text-align: center;
+}
+
+.dashboard th,
+.dashboard td {
+    border: 1px solid #ddd;
+}
+
+.dashboard th {
+    background-color: #f2f2f2;
+}
+
+.dashboard table {
+    width: 100%;
+}
+
+.buttonContainer {
+    text-align: center;
+}
+
+.buttonContainer button {
+    margin: 10px;
+    border-radius: 12px;
+    height: 40px;
+    width: 150px;
+    font-size: 16px;
+    background-color: black;
+    color: white;
+    font-family: inherit;
+}
+
+.appointments button {
+    margin: 10px;
+    border-radius: 12px;
+    height: 30px;
+    width: 200px;
+    font-family: inherit;
+}
+

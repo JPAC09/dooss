@@ -1,0 +1,25 @@
+.aboutcontainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.aboutcontainer .about {
+    width: 50%;
+}
+
+.imagesdentalchair {
+    width: 30%;
+    border-style:double;
+}
+
+.imagesconsult {
+    width: 13.5%;
+    border-style:double;
+}
+
+.imagescontainer {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}

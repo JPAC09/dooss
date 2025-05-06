@@ -1,0 +1,29 @@
+.servicescontainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.servicescontainer button {
+    margin: 10px;
+    border-radius: 12px;
+    height: 40px;
+    width: 200px;
+    font-size: 16px;
+    background-color: black;
+    color: white;
+    font-family: inherit;
+}
+
+.servicescontainer .buttoncontainer {
+    display: flex;
+    justify-content: center;
+}
+
+.servicescontainer ul {
+    list-style: none;
+}
+
+.servicescontainer li {
+    margin-bottom: 10px;
+}

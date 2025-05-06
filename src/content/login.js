@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import axios from 'axios';
+import styles from './login.module.css';
 
 export default function Login({setUser}) {
     
@@ -24,6 +25,7 @@ export default function Login({setUser}) {
     // },[]);
 
     const handleEmailChange = (e) => {
+        console.log(redirect);
         setEmail(e.target.value);
     }
 
@@ -66,18 +68,26 @@ export default function Login({setUser}) {
     }
     
     return (
-        <>
-            {isBooking ? <p>Login to book an appointment</p> : null}
-            {isDashboard ? <p>Login to view dashboard</p> : null}
-            {isLogout ? <p>Succesfully logged out</p> : null}
-            <form onSubmit={(e) => {
+        <div className={styles.loginformcontainer}>
+            {isBooking ? <p>Login to book an appointment.</p> : null}
+            {isDashboard ? <p>Login to view dashboard.</p> : null}
+            {isLogout ? <p>Succesfully logged out.</p> : null}
+            <form className={styles.loginform} onSubmit={(e) => {
                 e.preventDefault();
                 handleLogin();
             }}>
-                <input type="email" placeholder="e-mail" onChange={handleEmailChange}/>
-                <input type="password" placeholder="password" onChange={handlePasswordChange}/>
-                <button type="submit">Login</button>
+                <div>
+                    <label for="email">E-mail:</label>
+                    <input id="email" type="email" placeholder="E-mail" onChange={handleEmailChange} required/>
+                </div>
+                <div>
+                    <label for="password">Password:</label>
+                    <input id="password" type="password" placeholder="Password" onChange={handlePasswordChange} required/>
+                </div>
+                <div className={styles.buttoncontainer}>
+                    <button type="submit">Login</button>
+                </div>
             </form>
-        </>
+        </div>
     )
 }

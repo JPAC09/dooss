@@ -1,0 +1,44 @@
+.bookingformcontainer {
+    display: flex;
+    justify-content: center;
+}
+
+.bookingform {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 25%;
+}
+
+.bookingform select {
+    border-radius: 12px;
+    height: 40px;
+    width: 265px;
+    margin: 5px;
+    padding-left: 0.5rem;
+    font-size: 16px;
+    font-family: inherit;
+}
+
+.bookingform div{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 5px;
+}
+
+.bookingform .buttoncontainer {
+    display: flex;
+    justify-content: center;
+}
+
+.bookingform button {
+    margin: 10px;
+    border-radius: 12px;
+    height: 40px;
+    width: 150px;
+    font-size: 16px;
+    background-color: black;
+    color: white;
+    font-family: inherit;
+}
