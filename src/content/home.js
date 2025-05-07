@@ -18,8 +18,8 @@ export default function Home() {
                 </p>
             </section>
             <section className={styles.imagescontainer}>
-                <img className={styles.imagesdentalchair} src="dentaloffice_dentalchair.jpg" alt="Dental Chair" />
-                <img className={styles.imagesconsult} src="dentaloffice_consult.jpg" alt="Consultation" />
+                <img className={styles.imagesdentalchair} src="/images/dentaloffice_dentalchair.jpg" alt="Dental Chair" />
+                <img className={styles.imagesconsult} src="/images/dentaloffice_consult.jpg" alt="Consultation" />
             </section>
             <section className={styles.contactinfo}>
                 <h3>Contact Us</h3>

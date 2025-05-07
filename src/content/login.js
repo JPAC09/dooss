@@ -4,7 +4,7 @@ import axios from 'axios';
 import styles from './login.module.css';
 
 export default function Login({setUser}) {
-    
+    const apiURL = process.env.REACT_APP_BACKEND_BASE_URL;
     const navigate = useNavigate();
     const [email,setEmail] = useState();
     const [password, setPassword] = useState();
@@ -36,7 +36,7 @@ export default function Login({setUser}) {
     const handleLogin = async () => {
         try {
             
-            const res = await axios.post('http://localhost:5000/api/login',
+            const res = await axios.post(`${apiURL}/api/login`,
                 {
                     email: email,
                     password: password

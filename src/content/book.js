@@ -4,6 +4,8 @@ import axios from 'axios';
 import styles from './book.module.css';
 
 export default function Booking({user}) {
+  const apiURL = process.env.REACT_APP_BACKEND_BASE_URL;
+  console.log(apiURL);
   const navigate = useNavigate();
   const [dentists, setDentists] = useState([]);
   const [slots, setSlots] = useState([]);
@@ -13,7 +15,7 @@ export default function Booking({user}) {
   useEffect(() => {
     //const token = localStorage.getItem('token');
     if (user/**token && token.trim() !== ''**/) {
-        axios.get(`http://localhost:5000/api/booking/dentists`)
+        axios.get(`${apiURL}/api/booking/dentists`)
         .then(res => setDentists(res.data));
     }
     else {
@@ -24,13 +26,13 @@ export default function Booking({user}) {
   }, []);
 
   const fetchSlots = (dentistId) => {
-    axios.get(`http://localhost:5000/api/booking/slots/${dentistId}`)
+    axios.get(`${apiURL}/api/booking/slots/${dentistId}`)
       .then(res => setSlots(res.data));
   };
 
   const book = async (slotId) => {
     try {
-        const res = await axios.post('http://localhost:5000/api/booking/book', {
+        const res = await axios.post(`${apiURL}/api/booking/book`, {
             timeSlotId: slotId,
             userId: user.userId
             })

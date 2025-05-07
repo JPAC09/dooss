@@ -4,6 +4,7 @@ import axios from 'axios';
 import styles from './dashboard.module.css';
 
 export default function Dashboard({user, setUser}) {
+    const apiURL = process.env.REACT_APP_BACKEND_BASE_URL;
     const navigate = useNavigate();
     const [appointments, setAppointments] = useState([]);
 
@@ -12,7 +13,7 @@ export default function Dashboard({user, setUser}) {
         //     //const userId = localStorage.getItem('userId');
             const userId = user.userId;
             console.log(userId);
-            axios.get(`http://localhost:5000/api/dashboard/${userId}`)
+            axios.get(`${apiURL}/api/dashboard/${userId}`)
                 .then(res => setAppointments(res.data));
         }
         else {
@@ -21,7 +22,7 @@ export default function Dashboard({user, setUser}) {
       }, []);
     
     const handleCancel = (appointmentId) => {
-        axios.delete(`http://localhost:5000/api/dashboard/${appointmentId}`)
+        axios.delete(`${apiURL}/api/dashboard/${appointmentId}`)
             .then(() => {
                 alert('appointment deleted!');
                 setAppointments(prevAppointments => 

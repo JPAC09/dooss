@@ -4,6 +4,7 @@ import axios from 'axios';
 import styles from './signup.module.css';
 
 export default function Signup({user}) {
+    const apiURL = process.env.REACT_APP_BACKEND_BASE_URL;
     const navigate = useNavigate();
     const [name, setName] = useState();
     const [gender, setGender] = useState();
@@ -35,7 +36,7 @@ export default function Signup({user}) {
 
     const handleSignup = () => {
         if (isPasswordMatch) {
-            axios.post('http://localhost:5000/api/signup', {
+            axios.post(`${apiURL}/api/signup`, {
                 name: name,
                 gender: gender,
                 birthdate: birthdate,
